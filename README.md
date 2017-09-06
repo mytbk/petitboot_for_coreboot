@@ -31,7 +31,7 @@ Then source petitboot-env
 source petitboot-env
 ```
 
-Configure and let buildroot do its thing
+Configure and let buildroot do its thing. You can first install lzip so that buildroot will not build host-lzip.
 
 ```bash
 pfc-build petitboot_defconfig
@@ -56,6 +56,8 @@ Adding `console=ttyS1` to the linux command line arguments also fixes this probl
 When calling kexec to load a new kernel, the new kernel does not necesseraly have an available framebuffer.
 If you set up disk encryption this might be a problem since you cannot see the password prompt.
 To work around this you can add a KMS module like i915 to you distro's bzImage or initrd.
+
+If you're using an NVIDIA graphics card and have nouveau driver in the kernel, you may need to add `nouveau.config=NvForcePost=1` to the Linux command line arguments to reinitialize the graphics card.
 
 ## Customize buildroot, linux
 To customize buildroot, run in the petitboot\_for\_coreboot directory:
