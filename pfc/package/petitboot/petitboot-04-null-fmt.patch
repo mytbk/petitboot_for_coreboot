@@ -1,0 +1,13 @@
+diff --git a/ui/ncurses/nc-cui.c b/ui/ncurses/nc-cui.c
+index 72a056d..be276c8 100644
+--- a/ui/ncurses/nc-cui.c
++++ b/ui/ncurses/nc-cui.c
+@@ -1327,7 +1327,7 @@ static struct pmenu *plugin_menu_init(struct cui *cui)
+ 	m = pmenu_init(cui, 2, cui_plugin_menu_exit);
+ 	m->on_new = cui_item_new;
+ 	m->scr.frame.ltitle = talloc_asprintf(m, _("Petitboot Plugins"));
+-	m->scr.frame.rtitle = talloc_asprintf(m, NULL);
++	m->scr.frame.rtitle = talloc_asprintf(m, "");
+ 	m->scr.frame.help = talloc_strdup(m,
+ 		_("Enter=install, e=details, x=exit, h=help"));
+ 	m->scr.frame.status = talloc_asprintf(m,
